@@ -6,15 +6,17 @@ Po opatřeních viz níže ještě vypni/zapni VS Code.
 
 ## Pro uživatele macOS
 
-### Instalace certifikátů macOS:
-Python 3.6 a novější na macOS obsahuje dodatečný skript, který instaluje certifikáty. Spusťte tento skript pro instalaci potřebných certifikátů.
+### Možnost 1: Instalace certifikátů macOS:
+Python na macOS obsahuje dodatečný skript, který instaluje certifikáty. Spusťte v terminálu tento skript pro instalaci potřebných certifikátů.
 ```py
 /Applications/Python\ 3.x/Install\ Certificates.command
 ```
 
-Nahraďte 3.x vaší konkrétní verzí Pythonu.
+- Nahraďte 3.x vaší konkrétní verzí Pythonu, např. 3.12
+- Po instalaci ještě vypni/zapni VS Code.
 
-### Instalace certifikátů pomocí Certifi:
+
+### Možnost 2: Instalace certifikátů pomocí Certifi:
 Instalace Pythonu na macOS obvykle nezahrnuje potřebné certifikáty pro ověření SSL spojení. Můžete potřebovat nainstalovat balíček certifi a nastavit vaše Python prostředí, aby používalo tyto certifikáty.Nejprve se ujistěte, že máte nainstalovaný balíček certifi:
 ```py
 pip install certifi
@@ -28,7 +30,12 @@ import pandas as pd
 
 # Nastaví SSL kontext pro použití certifikátu z balíčku certifi
 ssl_context = ssl.create_default_context(cafile=certifi.where())
+```
 
+- Po instalaci ještě vypni/zapni VS Code.
+
+
+``` py
 # Nyní použijte pandas k načtení CSV s určeným SSL kontextem
 
 url = "https://your-secure-url.com/data.csv"
